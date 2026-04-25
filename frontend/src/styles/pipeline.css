@@ -1,0 +1,362 @@
+/* src/styles/pipeline.css */
+
+/* ── Summary bar (Refined to be more impactful) ──────────────── */
+.pipe-summary-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.pipe-summary-item {
+  background: #ffffff;
+  border: 1px solid var(--neutral-7);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.pipe-summary-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-border);
+}
+
+.pipe-summary-total {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.pipe-summary-total .pipe-summary-val,
+.pipe-summary-total .pipe-summary-lbl {
+  color: #ffffff;
+}
+
+.pipe-summary-val {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.pipe-summary-lbl {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--neutral-4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Kanban board ─────────────────────────────────────────── */
+.pipeline-kanban {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+  align-items: start;
+  /* Don't stretch columns vertically */
+}
+
+/* ── Stage column ─────────────────────────────────────────── */
+.pipe-stage-col {
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid var(--neutral-7);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10px);
+}
+
+.pipe-stage-head {
+  padding: 16px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--neutral-7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 4px solid var(--stage-color, var(--primary));
+  flex-shrink: 0;
+}
+
+.pipe-stage-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--neutral-0);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pipe-stage-icon {
+  font-size: 16px;
+}
+
+.pipe-stage-count {
+  font-size: 11px;
+  font-weight: 800;
+  background: var(--neutral-8);
+  color: var(--neutral-4);
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+.pipe-stage-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  /* Internal scrolling */
+  height: 255px;
+  /* Strictly 1-card height */
+  flex-shrink: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 100%);
+}
+
+.pipe-stage-footer {
+  padding: 25px;
+  /* Added top padding for gap */
+  background: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.pipe-stage-insight {
+  padding: 12px;
+  background: #ffffff;
+  border: 1px dashed var(--neutral-6);
+  border-left: 4px solid;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.psi-title {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--neutral-4);
+  margin-bottom: 2px;
+}
+
+.psi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+}
+
+.psi-row span {
+  color: var(--neutral-4);
+}
+
+.psi-row strong {
+  font-weight: 700;
+  color: var(--neutral-1);
+}
+
+.psi-row p {
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+/* Sleek custom scrollbar */
+.pipe-stage-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.pipe-stage-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pipe-stage-body::-webkit-scrollbar-thumb {
+  background: var(--neutral-7);
+  border-radius: 10px;
+}
+
+.pipe-empty {
+  padding: 40px 12px;
+  text-align: center;
+  color: var(--neutral-5);
+  font-style: italic;
+  font-size: 13px;
+}
+
+/* ── Deal card ────────────────────────────────────────────── */
+.pipe-deal-card {
+  background: #ffffff;
+  border: 1px solid var(--neutral-7);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  border-left: 5px solid;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  /* Revert to auto height */
+  flex-shrink: 0;
+}
+
+.pipe-deal-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-right-color: var(--neutral-6);
+}
+
+.pdc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.pdc-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.pdc-risk {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.pdc-risk-low {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.pdc-risk-med {
+  background: var(--warning-light);
+  color: var(--warning);
+}
+
+.pdc-risk-high {
+  background: var(--error-light);
+  color: var(--error);
+}
+
+.pdc-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--neutral-0);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.pdc-org {
+  font-size: 11px;
+  color: var(--neutral-4);
+  margin-bottom: 14px;
+}
+
+.pdc-stats {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--neutral-8);
+  margin-bottom: 16px;
+}
+
+.pdc-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.pdc-stat-lbl {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--neutral-5);
+  text-transform: uppercase;
+}
+
+.pdc-stat-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--neutral-0);
+}
+
+.pdc-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.pdc-act-btn {
+  flex: 1;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #f8fafc;
+  border: 1px solid var(--neutral-7);
+  color: var(--neutral-2);
+  transition: all 0.2s;
+}
+
+.pdc-act-btn:hover {
+  background: #ffffff;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pdc-act-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.pdc-act-primary:hover {
+  background: #461EAA;
+  box-shadow: 0 4px 12px rgba(89, 41, 208, 0.2);
+}
+
+/* ── Responsive ─────────────── */
+@media (max-width: 1100px) {
+  .pipeline-kanban {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+
+  .pipe-summary-bar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .pipeline-kanban {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .pipe-summary-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

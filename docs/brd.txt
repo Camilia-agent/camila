@@ -1,0 +1,806 @@
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 1 Business Requirements Document  
+Pricing Team  — Pricing Intelligence Agent  
+ 
+Project:  Pricing Intelligence Agent  
+Document Number: V1  
+Requested by: Akshat  
+Prepared by: Lokesh Cherdup  
+Date: 17/04/2026  
+Status: Draft  
+ 
+ 
+ 
+Document Information  
+Field  Details  
+Requested by  Pricing Team  
+Requested by (Person Name)  Akshat  
+Requested on  17/04/2026  
+Prepared by  Lokesh Cherdup  
+Reviewed by  Rajib Basu  
+Date Submitted   
+Document Number  V1 
+Remarks  AI-driven solution to automate the end -to-end pricing lifecycle from RFP 
+ingestion to pricing output generation. The agent enables automated 
+extraction of RFP data, standardization of inputs, integration with cost 
+databases, and computation of sell rates u sing configurable margins and 
+overheads. It performs competitive benchmarking using historical data and 
+provides pricing recommendations with full transparency through cost -to-
+price bridges. The agent enforces Human -in-Loop checkpoints for validation 
+and a pproval before generating client -ready pricing templates and 
+commercial documents. It also performs contract risk analysis, identifies 
+compliance gaps, and recommends escalation paths. The solution ensures 
+full auditability through detailed logs, supports scalable processing of 
+multiple RFPs, and continuously improves through learning from historical 
+deals and user inputs.  
+ 
+Document Approvals  
+Approver Name  Department  Electronic Approval  Date  
+    
+    
+    
+    
+ 
+ 
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 2 1. Scope  
+The Pricing Intelligence Agent is designed as an autonomous AI -driven system that supports pricing and commercial teams in 
+transforming client RFPs into accurate, structured, and approval -ready pricing proposals. The current process relies heavily on 
+manua l effort for interpreting RFPs, extracting requirements, mapping costs, and preparing pricing documents. This leads to 
+inconsistencies, delays, and limited transparency in pricing decisions. The AI agent will act as a centralized intelligence l ayer 
+that au tomates data extraction, pricing computation, benchmarking, and documentation, ensuring faster turnaround time and 
+improved accuracy across the pricing lifecycle.  
+The scope includes intelligent ingestion and analysis of RFP documents. The agent will process documents in multiple formats 
+and extract key inputs such as pricing model, service types, language pairs, regional variants, and volume estimates. It will  
+stand ardize extracted data into structured formats such as normalized locale codes and volume scenarios. In cases of 
+incomplete or ambiguous data, the agent will apply intelligent assumptions such as low, medium, and high scenarios, while 
+flagging missing or un supported inputs for user validation.  
+The scope also includes automated pricing computation and decision intelligence. The agent will integrate with internal cost 
+databases to retrieve buy rates for each service type and locale. It will apply user -defined inputs such as project management 
+overhead and target margin to compute sell rates. A transparent cost -to-price bridge will be generated for each pricing output, 
+ensuring full visibility into pricing logic. The agent will also perform competitive benchmarking using historical rate datab ases 
+and provide pricing recommendations based on past deal performance.  
+The solution includes workflow orchestration with mandatory Human -in-Loop checkpoints. The agent will enforce user inputs 
+for margin and overhead, and require approval before proceeding to template population. It will ensure that all pricing outpu ts 
+are va lidated before finalization. Once approved, the agent will automatically populate client pricing templates with rates, total 
+contract values, and structured pricing outputs. It will also generate commercial assumptions including service levels, tax 
+treatme nt, validity periods, and volume tolerance clauses.  
+The scope further includes strategic insights and contract risk analysis. The agent will generate internal pricing strategy 
+summaries for leadership review, including deal value, margin insights, and competitive positioning. It will analyze contract s 
+again st predefined approval matrices, identify risk areas, classify risk levels, and recommend escalation paths. This ensures 
+compliance with internal policies and improves decision -making at leadership levels.  
+Additionally, the solution includes end -to-end automation, monitoring, and auditability. The agent will maintain detailed logs of 
+all actions, including data extraction, pricing calculations, approvals, and outputs. It will ensure full traceability and 
+transparency across the pricing lifecycle. The system will operate on a scalable and event -driven architecture, supporting 
+multiple RFPs and large datasets simultaneously. It will produce structured deliverables such as pricing matrices, 
+benchmarking reports,  populated templates, commercial documents, and risk analysis outputs, thereby reducing manual effort 
+and improving operational efficiency.  
+The scope also includes extensibility and continuous improvement. The agent will learn from historical pricing decisions, use r 
+inputs, and deal outcomes to improve future recommendations. It will support configurable rules, dynamic pricing strategies, 
+and integration with additional enterprise systems. It will enable organizations to evolve pricing strategies over time while 
+maintaining consistency, governance, and scalability.  
+ 
+2. Feature Set  
+2.1 RFP Ingestion and Analysis  
+• Ingest RFP documents in multiple formats such as PDF and DOCX  
+• Extract pricing model such as per word, per minute, or subscription  
+• Identify service types, categories, and relevant cost database mappings  
+• Extract and normalize language pairs and regional variants using standard formats  
+• Generate structured locale manifest and flag unsupported locales  
+• Extract volume data and create low, medium, and high scenarios  
+• Apply intelligent assumptions where data is incomplete  
+2.2 Data Standardization and Validation  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 3 • Normalize locale codes using standard formats such as BCP -47  
+• Align volume units with cost database units  
+• Validate extracted data for completeness and accuracy  
+• Flag missing, inconsistent, or unsupported inputs  
+• Ensure all required inputs are available before processing  
+2.3 Cost Integration and Pricing Computation  
+• Integrate with internal cost databases to retrieve buy rates  
+• Map service types and locales to cost database entries  
+• Apply project management overhead and target margin inputs  
+• Compute sell rates using defined pricing formulas  
+• Generate cost -to-price bridge for each pricing output  
+• Support multi -scenario pricing outputs such as conservative, base, and aggressive  
+2.4 Competitive Benchmarking and Decision Intelligence  
+• Integrate with historical rate databases for benchmarking  
+• Compare proposed pricing with historical deals  
+• Provide recommendations to price above, below, or within market range  
+• Identify low data scenarios with fewer historical records  
+• Recommend pricing buffers for risk mitigation  
+• Provide reasoning and justification for pricing decisions  
+2.5 Workflow Orchestration and Human -in-Loop  
+• Enforce mandatory user inputs for overhead and margin  
+• Introduce approval checkpoints before template population  
+• Prevent progression without user validation  
+• Support user review and confirmation of pricing outputs  
+• Enable escalation workflows for high -value or low -margin deals  
+2.6 Template Generation and Output Automation  
+• Populate client pricing templates automatically  
+• Generate total contract value and pricing breakdowns  
+• Produce structured pricing outputs per locale and service type  
+• Generate commercial assumptions including SLAs, taxes, validity, and volume tolerance  
+• Create internal pricing strategy summaries for leadership review  
+2.7 Contract Risk Analysis  
+• Analyze contracts against predefined approval matrices  
+• Identify risk areas in commercial clauses  
+• Classify risks into high, medium, and low levels  
+• Detect missing or outdated clauses  
+• Recommend escalation paths based on risk levels  
+• Provide structured red -flag reports  
+2.8 Reporting and Deliverables  
+• Generate pricing matrix with margin bridge  
+• Produce benchmarking reports with historical comparisons  
+• Deliver populated client pricing templates  
+• Generate commercial assumptions documents  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 4 • Create leadership win -strategy summaries  
+• Produce contract risk analysis reports  
+2.9 Monitoring, Audit, and Traceability  
+• Maintain detailed logs of all agent activities  
+• Track data sources, calculations, and decisions  
+• Provide audit -ready outputs with full traceability  
+• Enable filtering and tracking of processing steps  
+• Ensure transparency across the pricing lifecycle  
+2.10 Scalability and Performance  
+• Support processing of multiple RFPs simultaneously  
+• Handle large datasets from cost and historical databases  
+• Ensure real -time or near real -time processing  
+• Operate on scalable and event -driven architecture  
+2.11 Extensibility and Continuous Learning  
+• Learn from historical deals and pricing outcomes  
+• Improve recommendation accuracy over time  
+• Support configurable pricing rules and strategies  
+• Enable integration with additional enterprise systems  
+• Adapt to evolving business requirements and pricing models  
+ 
+2. Requirements categories  
+Category  Focus Area  Description  
+Ekalavya 
+Requirements  Personalization and 
+Interaction  The agent must support personalized interaction for pricing and commercial teams 
+during RFP processing. It must capture inputs such as pricing assumptions, margin 
+preferences, and overhead configurations. It must adapt responses based on user roles 
+such as  analyst, manager, or leadership. It must ensure clear and consistent 
+communication across all stages of RFP analysis, pricing computation, and approval 
+workflows.  
+Arjuna 
+Requirements  Metrics and 
+Performance  The agent must track key metrics such as RFP processing time, pricing accuracy, margin 
+achievement, benchmarking effectiveness, and SLA adherence. It must monitor system 
+response time for data extraction, pricing computation, template generation, and 
+repor ting outputs. It must also track deal win indicators and pricing efficiency over time.  
+Chanakya 
+Requirements  Decision Intelligence 
+and Pricing Strategy  The agent must apply intelligent decision logic to compute optimal pricing. It must 
+integrate cost data, apply margin rules, and perform benchmarking against historical 
+deals. It must support multi -scenario pricing such as conservative, base, and aggressiv e 
+models. It must provide recommendations with justification and support strategic 
+decision -making for competitive positioning and risk mitigation.  
+Hrudayam  User Experience and 
+Workflow Efficiency  The agent must provide a seamless and efficient user experience for pricing teams. It 
+must reduce manual effort in RFP analysis, pricing calculations, and document 
+preparation. It must provide structured outputs, clear insights, and easy -to-understand 
+pric ing breakdowns. It must ensure smooth workflow transitions with minimal user 
+intervention except at defined checkpoints.  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 5 Sukmadarshini  Accuracy, 
+Compliance, and 
+Traceability  The agent must ensure high accuracy in data extraction, pricing computation, and output 
+generation. It must maintain detailed logs for all actions including data ingestion, 
+calculations, approvals, and outputs. It must ensure compliance with internal prici ng 
+policies and approval matrices. It must provide full traceability and audit readiness 
+across the pricing lifecycle.  
+ 
+2. Business Rules  
+Identifier  Business Rule 
+Name  Description  Example  Related Rules  
+BR-PI-001  Audit Logging and 
+Traceability  The agent must maintain detailed logs for all actions performed. 
+This includes RFP ingestion, data extraction, pricing calculations, 
+benchmarking, approvals, and output generation. Logs must 
+capture timestamps, input data, decision logic, and outputs to 
+ensure full traceability and audit readiness.  Pricing 
+calculation 
+logged with 
+cost inputs, 
+margin, and 
+final sell rate  BR-PI-002, BR -PI-006 
+BR-PI-002  RFP Data 
+Validation  The agent must validate all extracted RFP inputs before 
+processing. Mandatory fields such as pricing model, service types, 
+language pairs, and volume estimates must be present and valid. 
+Missing or invalid inputs must be flagged for user correction.  Missing 
+volume data 
+triggers 
+validation 
+error  BR-PI-003 
+BR-PI-003  Data 
+Standardization  The agent must standardize extracted data into defined formats. 
+Locale codes must follow standard formats and volume units 
+must align with cost database structures. Unsupported or 
+inconsistent data must be flagged.  Locale 
+converted to 
+standardized 
+format  BR-PI-004 
+BR-PI-004  Cost Mapping and 
+Integration  The agent must map service types and locales to internal cost 
+databases. It must retrieve correct buy rates and ensure accurate 
+mapping before pricing computation.  Translation 
+service 
+mapped to 
+cost 
+database 
+rate  BR-PI-005 
+BR-PI-005  Pricing 
+Computation 
+Logic  The agent must compute sell rates using buy rates, project 
+overhead, and target margin. It must generate a transparent cost -
+to-price bridge for each pricing output.  Sell rate 
+calculated 
+with 20% 
+margin and 
+overhead  BR-PI-006 
+BR-PI-006  Benchmarking and 
+Recommendation  The agent must compare computed pricing with historical deal 
+data. It must provide recommendations such as price above, 
+below, or within market range. It must flag low -confidence 
+scenarios.  Suggested 
+pricing below 
+market due 
+to 
+competitive 
+deal  BR-PI-007 
+BR-PI-007  Multi -Scenario 
+Pricing  The agent must generate multiple pricing scenarios such as 
+conservative, base, and aggressive. These scenarios must be 
+based on volume assumptions and pricing strategies.  Low, 
+medium, and 
+high volume 
+pricing 
+generated  BR-PI-008 
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 6 BR-PI-008  Human -in-Loop 
+Approval  The agent must enforce mandatory user validation before 
+finalizing pricing outputs. Inputs such as margin and overhead 
+must be confirmed by users. The workflow must not proceed 
+without approval.  User 
+approves 
+margin 
+before 
+template 
+generation  BR-PI-009 
+BR-PI-009  Template 
+Generation  The agent must populate client pricing templates automatically 
+with validated data. Outputs must include pricing details, total 
+contract value, and structured breakdowns.  Pricing 
+template 
+auto -filled 
+with 
+computed 
+rates  BR-PI-010 
+BR-PI-010  Commercial 
+Assumptions 
+Generation  The agent must generate commercial assumptions including 
+SLAs, taxes, validity periods, and volume tolerances. These must 
+be consistent with organizational standards.  SLA and tax 
+clause 
+generated in 
+output 
+document  BR-PI-011 
+BR-PI-011  Contract Risk 
+Analysis  The agent must analyze contracts against predefined approval 
+matrices. It must identify risks, classify them, and recommend 
+escalation paths.  High -risk 
+clause 
+flagged for 
+approval  BR-PI-012 
+BR-PI-012  Exception 
+Handling and 
+Escalation  The agent must handle exceptions such as missing data, low -
+confidence pricing, or contract risks. It must trigger alerts and 
+escalate to users or leadership when required.  Missing rate 
+triggers 
+escalation 
+alert  BR-PI-013 
+BR-PI-013  Output Reporting 
+and Delivery  The agent must generate structured outputs such as pricing 
+matrices, benchmarking reports, and risk analysis reports. 
+Outputs must be complete and accurate.  Pricing matrix 
+generated for 
+all locales   
+ 
+3. Agent Profile Card  
+Field  Definition / Required Information  
+Agent Name  Pricing Intelligence Agent  
+Agent Code  AG-PI-001  
+Department  Pricing / Commercial Excellence  
+Designation  Autonomous Pricing AI Agent  
+Designation Expectations  The agent must automate RFP ingestion, data extraction, pricing computation, 
+benchmarking, template generation, and risk analysis. It must ensure accuracy, 
+transparency, and efficiency across the pricing lifecycle while supporting Human -in-Loop 
+validation.  
+Reports To – Solid Line  Pricing Manager  
+Reports To – Dotted Line  Product Manager  
+Email ID  Configurable system email used for sending alerts, approval requests, pricing outputs, and 
+reporting notifications  
+Works With  Internal cost databases, historical rate databases, document processing systems, pricing 
+templates, and reporting systems  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 7 Daily Workflows  Ingest RFP → extract data → validate and standardize → map cost → compute pricing → 
+generate scenarios → benchmark → apply HIL validation → populate templates → generate 
+outputs → log activities  
+Help / Escalation Path  First level to pricing analyst for validation. Second level escalation to pricing manager for 
+approval. Third level to leadership for high -risk or high -value deals  
+Skills  Data extraction, pricing computation, benchmarking, risk analysis, workflow automation, 
+API integration  
+Upskilling Sources  Historical deal data, pricing outcomes, user feedback, system logs  
+Linguistic Capabilities  English. Can be extended to multi -language support for global RFPs  
+Communication Backend  API-driven integration between document processing systems, cost databases, and 
+reporting tools  
+Social / Channel APIs  Internal dashboards, email notifications, optional collaboration tools  
+Model Access  Rule -based pricing engine with optional AI/ML models for prediction, benchmarking, and 
+recommendations  
+Decision Brain  Hybrid decision engine combining rule -based logic and data -driven intelligence for pricing, 
+benchmarking, and risk classification  
+Autonomous Channel Ownership  Owns the full pricing lifecycle from RFP ingestion to final output generation  
+Google Access Account  Not applicable unless integrated with document or collaboration platforms  
+Access Restrictions  Restricted access to sensitive pricing data, cost structures, and deal information. Role -
+based access control enforced  
+Delivery Interfaces  Dashboard, reporting tools, document outputs, email notifications  
+Stakeholder Contact Rule  Stakeholders are contacted only through system -generated insights, alerts, and reports  
+CRM Diary  Maintains logs of all activities including RFP processing, pricing decisions, benchmarking, 
+approvals, and outputs  
+Diary Allow -List  Only validated and approved pricing outputs are marked as completed entries  
+HIL / Godfather Guidance  Pricing analysts validate extracted data and computed pricing. Managers approve final 
+pricing. Leadership reviews high -risk or strategic deals  
+Guardrails  No incorrect pricing outputs. No missing validation checkpoints. No unauthorized data 
+exposure. All calculations must be traceable. Secure handling of pricing and commercial 
+data  
+ 
+3.1 Human -in-Loop 
+• The Pricing Intelligence Agent operates with a controlled Human -in-Loop model to ensure accuracy, compliance, and 
+business validation at critical stages of the pricing lifecycle. While the agent automates data extraction, pricing 
+computation, benchmarking,  and document generation, human intervention is required at key decision points to 
+maintain governance and accountability.  
+• The first level of Human -in-Loop interaction occurs during data validation and assumption confirmation . Pricing 
+analysts review extracted RFP inputs such as pricing model, service types, language pairs, and volume scenarios. 
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 8 Any missing or ambiguous data identified by the agent must be validated or corrected by the user before further 
+processing. This ensures that all downstream pricing calculations are based on accurate and approved inputs.  
+• The second level of intervention is during pricing computation and margin validation . The agent computes pricing 
+using cost data, overheads, and margin inputs. However, users are required to review and confirm these inputs, 
+especially for high -value deals or strategic opportunities. Analysts can adjust margins, apply overrides, or modify 
+assumptions based on business context before approving the pricing output.  
+• The third level of Human -in-Loop control is applied during benchmarking and recommendation validation . The 
+agent provides pricing recommendations based on historical data and market positioning. Users must review these 
+recommendations and validate whether the suggested pricing aligns with business strategy, competitiveness, and 
+risk appetite. This ensures  that automated recommendations are aligned with real -world decision -making.  
+• The fourth level of intervention is during final approval and template generation . The agent does not proceed to 
+populate client -facing pricing templates unless explicit approval is provided by the pricing team or manager. This step 
+ensures that all pricing outputs, contract values, and commercial assumptions are reviewed and approved before 
+being shared externally.  
+• The fifth level of Human -in-Loop involvement is in contract risk analysis and escalation handling . The agent 
+identifies risks in commercial clauses and classifies them based on predefined rules. High -risk scenarios require 
+manual review and approval from pricing managers or leadership. Users may decide to accept, mitigate, or escalate 
+risks based on b usiness priorities.  
+• Additionally, Human -in-Loop support is required for exception handling . Scenarios such as missing cost data, low -
+confidence benchmarking, unsupported locales, or inconsistent inputs will trigger alerts. These cases require user 
+intervention to resolve issues before the workflow can continue.  
+• Overall, the Human -in-Loop model ensures that the Pricing Intelligence Agent operates with a balance of automation 
+and human control. It enables efficiency while maintaining accuracy, compliance, and strategic decision -making 
+across the pricing lifecycle.  
+ 
+3.2 UI Requirements  
+# UI Component  Description  User  
+1 RFP Ingestion Dashboard  Displays uploaded RFP documents and ingestion 
+status. Shows document type, upload time, 
+processing status, and extraction progress. Enables 
+users to initiate and monitor RFP processing.  Pricing Analyst  
+2 Data Extraction and Validation 
+Panel  Displays extracted RFP data such as pricing model, 
+service types, language pairs, and volume estimates. 
+Allows users to review, edit, and validate extracted 
+inputs before processing. Highlights missing or 
+inconsistent data.  Pricing Analyst  
+3 Data Standardization View  Shows normalized data such as standardized locale 
+codes and aligned volume units. Provides visibility into 
+transformations applied by the agent. Allows user 
+confirmation before proceeding.  Pricing Analyst  
+4 Pricing Computation Dashboard  Displays computed pricing outputs including buy 
+rates, overhead, margin, and sell rates. Shows cost -to-
+price bridge for transparency. Supports comparison of 
+multiple pricing scenarios.  Pricing Analyst / Manager  
+5 Scenario Comparison Panel  Allows users to compare conservative, base, and 
+aggressive pricing scenarios. Highlights differences in 
+pricing, margins, and total contract value. Supports 
+decision -making.  Pricing Analyst / Manager  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 9 6 Benchmarking and 
+Recommendation Panel  Displays comparison of proposed pricing with 
+historical deals. Shows market positioning and 
+recommended pricing strategy. Provides reasoning 
+and confidence indicators.  Pricing Analyst / Manager  
+7 Approval and HIL Panel  Enables user validation and approval of pricing inputs 
+and outputs. Captures approvals for margin, 
+overhead, and final pricing. Prevents further workflow 
+progression without approval.  Pricing Analyst / Manager  
+8 Template Generation Interface  Displays auto -populated client pricing templates. 
+Shows structured pricing outputs including rates, 
+breakdowns, and total contract value. Allows final 
+review before export or submission.  Pricing Analyst  
+9 Commercial Assumptions Panel  Displays generated commercial assumptions such as 
+SLAs, tax details, validity periods, and volume 
+tolerances. Allows users to review and adjust 
+assumptions if required.  Pricing Analyst / Manager  
+10 Contract Risk Analysis Panel  Displays identified risks in contracts. Shows risk 
+classification, impacted clauses, and recommended 
+actions. Supports decision -making and escalation.  Manager / Leadership  
+11 Reporting and Deliverables 
+Dashboard  Provides access to generated outputs such as pricing 
+matrices, benchmarking reports, and risk analysis 
+documents. Supports download and sharing.  Pricing Team / Management  
+12 Audit and Activity Logs Viewer  Displays detailed logs of all agent activities including 
+data extraction, pricing calculations, approvals, and 
+outputs. Supports filtering and traceability for audit 
+purposes.  Ops / Compliance  
+13 Performance and Insights 
+Dashboard  Displays key metrics such as RFP processing time, 
+pricing accuracy, margin trends, and SLA adherence. 
+Provides insights for operational and strategic 
+decision -making.  Management  
+14 Alerts and Exception Panel  Displays alerts for missing data, validation errors, low -
+confidence scenarios, and system exceptions. 
+Enables quick user action and resolution.  Pricing Analyst / Ops  
+ 
+ 
+ 
+ 
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 10 3.3 Reporting Requirements  
+# Report Name  Description  Frequency  Format  Audience  
+1 RFP Processing Report  Provides details of all ingested 
+RFPs. Includes document status 
+such as uploaded, processed, 
+validated, and completed. Helps 
+track RFP processing lifecycle and 
+identify delays.  Daily  Dashboard  Pricing Team / Ops  
+2 Data Extraction and 
+Validation Report  Tracks extracted data fields such as 
+pricing model, service types, 
+language pairs, and volumes. 
+Highlights missing, inconsistent, or 
+corrected inputs. Ensures data 
+quality before pricing computation.  Daily  Dashboard  Pricing Analyst  
+3 Pricing Computation and 
+Margin Report  Provides detailed view of pricing 
+outputs including buy rates, 
+overhead, margin, and sell rates. 
+Includes cost -to-price bridge for 
+transparency and margin analysis.  Daily  Dashboard  Pricing Team / 
+Management  
+4 Benchmarking and 
+Recommendation Report  Compares proposed pricing with 
+historical deals. Shows market 
+positioning and recommended 
+pricing strategies. Highlights low -
+confidence scenarios and pricing 
+deviations.  Weekly  Dashboard  Management  
+5 Scenario Comparison 
+Report  Displays comparison of 
+conservative, base, and aggressive 
+pricing scenarios. Highlights 
+differences in pricing, margins, and 
+contract value. Supports decision -
+making.  Weekly  Dashboard  Pricing Team / 
+Management  
+6 Template and Output 
+Generation Report  Provides details of generated client 
+pricing templates and commercial 
+documents. Includes output status, 
+completeness, and delivery 
+readiness.  Daily  Dashboard  Pricing Team  
+7 Contract Risk Analysis 
+Report  Tracks identified risks in contracts. 
+Includes risk classification, 
+impacted clauses, and 
+recommended actions. Supports 
+escalation and compliance review.  Weekly  Dashboard  Management / 
+Compliance  
+8 HIL Validation and 
+Approval Report  Tracks Human -in-Loop actions 
+such as data validation, margin 
+approval, and final pricing approval. 
+Includes user actions and approval 
+timelines.  Weekly  Dashboard  Ops / Management  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 11 9 Audit and Activity Log 
+Report  Provides complete audit trail of all 
+agent activities including RFP 
+ingestion, data extraction, pricing 
+computation, approvals, and 
+outputs. Ensures traceability and 
+compliance.  Monthly  Dashboard / Export  Compliance / Ops  
+10 System Performance and 
+SLA Report  Measures system performance 
+such as RFP processing time, 
+pricing computation time, and 
+system availability. Helps monitor 
+overall system efficiency.  Weekly  Dashboard  Management  
+11 Exception and Alert Report  Tracks system alerts such as 
+missing data, validation errors, low -
+confidence pricing, and processing 
+failures. Helps identify and resolve 
+issues quickly.  Daily  Dashboard  Ops / Pricing Team  
+12 Continuous Learning and 
+Improvement Report  Tracks improvements in pricing 
+accuracy, recommendation quality, 
+and decision outcomes based on 
+historical data and user feedback.  Monthly  Dashboard  Product / Management  
+ 
+3.4 User Access Requirements  
+Role Access Level  Permissions  Restrictions  
+Pricing Analyst  Full  Can upload and manage RFP documents. Can 
+review, edit, and validate extracted data. Can 
+configure pricing inputs such as margin and 
+overhead. Can generate pricing scenarios and 
+review outputs.  Cannot approve final pricing for high -value 
+or strategic deals. Cannot modify system -
+level configurations.  
+Pricing Manager  Approve / Full  Can review pricing outputs, benchmarking 
+insights, and scenario comparisons. Can approve 
+or reject final pricing. Can validate commercial 
+assumptions and risk analysis.  Cannot modify system configurations or 
+underlying cost databases.  
+Leadership / 
+Management  Read / Approve  Can view pricing summaries, deal value, margin 
+insights, and strategic reports. Can approve high -
+value deals and risk escalations.  Cannot modify pricing calculations or 
+operational workflows.  
+Ops Team  Read / Limited Write  Can monitor RFP processing, system performance, 
+and workflow execution. Can handle exceptions, 
+alerts, and operational issues.  Cannot modify pricing logic, cost data, or 
+approval decisions.  
+Admin  Full  Can configure system rules, pricing logic 
+parameters, integrations, user roles, and workflow 
+settings. Can manage system behavior and access 
+controls.  Cannot bypass audit logs or modify finalized 
+pricing outputs without traceability.  
+Compliance  Read  Can access audit logs, pricing decisions, contract 
+risk reports, and system activity history for 
+governance and audit purposes.  No modification access to system data, 
+pricing outputs, or workflows.  
+Data 
+Management 
+Team  Limited Write  Can manage and update internal cost databases 
+and historical rate data used for benchmarking. 
+Ensures data accuracy and consistency.  Cannot access pricing approvals or modify 
+workflow logic.  
+ 
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 12 3.5 Acceptance Criteria  
+# Criteria  Acceptance Condition  Related BR  
+1 RFP Ingestion 
+Accuracy  RFP documents must be successfully ingested and processed. 
+Supported formats must be accepted and ingestion failures must be 
+logged and flagged.  BR-PI-002  
+2 Data Extraction and 
+Validation  Extracted RFP data such as pricing model, service types, language 
+pairs, and volume must be accurate and complete. Missing or invalid 
+inputs must be flagged for correction.  BR-PI-002  
+3 Data Standardization  Extracted data must be standardized into defined formats such as 
+normalized locale codes and aligned volume units before processing.  BR-PI-003  
+4 Pricing Computation 
+Accuracy  Sell rates must be correctly calculated using buy rates, overhead, and 
+margin inputs. Cost -to-price bridge must be generated for 
+transparency.  BR-PI-005  
+5 Scenario Generation  The system must generate multiple pricing scenarios such as 
+conservative, base, and aggressive based on defined assumptions.  BR-PI-007  
+6 Benchmarking 
+Effectiveness  Pricing outputs must be compared with historical data and appropriate 
+recommendations must be generated with clear reasoning.  BR-PI-006  
+7 Human -in-Loop 
+Validation  The system must enforce user validation for key inputs such as margin 
+and overhead. Workflow must not proceed without approval.  BR-PI-008  
+8 Template Generation 
+Accuracy  Client pricing templates must be auto -populated with correct pricing 
+data, contract values, and structured outputs.  BR-PI-009  
+9 Commercial 
+Assumptions Accuracy  Generated commercial assumptions must include correct SLAs, taxes, 
+validity periods, and volume tolerances aligned with standards.  BR-PI-010  
+10 Contract Risk 
+Detection  The system must correctly identify, classify, and report risks in 
+contracts. High -risk cases must be flagged for escalation.  BR-PI-011  
+11 Output Completeness  All deliverables such as pricing matrices, benchmarking reports, 
+templates, and risk reports must be generated accurately and 
+completely.  BR-PI-013  
+12 Audit Traceability  All system actions including ingestion, validation, pricing, approvals, 
+and outputs must be logged with full traceability.  BR-PI-001  
+13 Exception Handling  The system must detect and handle exceptions such as missing data, 
+unsupported inputs, or low -confidence scenarios, and trigger alerts.  BR-PI-012  
+14 System Performance  The system must process RFPs and generate outputs within acceptable 
+SLA timelines without delays.  BR-PI-013  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 13 15 System Reliability  The system must operate without critical failures and ensure 
+continuous execution of the pricing workflow.  BR-PI-012  
+ 
+3.6 Document Resources  
+Name  Business Unit  Role 
+Akshat  Pricing  Business Requestor. Provides business 
+requirements, validates pricing 
+workflows, and ensures alignment with 
+business goals  
+Lokesh Cherdup  Product  BRD Author. Prepares the document, 
+defines workflows, and ensures 
+requirement completeness  
+Cost Database  Internal Systems  Provides buy rates for services and 
+locales used in pricing computation  
+Historical Rate Database  Internal Systems  Provides past deal pricing data for 
+benchmarking and recommendation 
+generation  
+Document Processing Engine  Technology  Handles RFP ingestion, parsing, and 
+data extraction from documents  
+Pricing Engine  Technology  Performs pricing computation, margin 
+application, and scenario generation  
+Template Management System  Technology  Stores and manages client pricing 
+templates and supports automated 
+population  
+Reporting and Analytics System  Technology  Generates reports such as pricing 
+matrix, benchmarking insights, and 
+performance metrics  
+Pricing Team  Operations  Reviews extracted data, validates 
+pricing inputs, and performs Human -
+in-Loop approvals  
+Pricing Manager  Operations  Approves final pricing outputs and 
+validates commercial assumptions 
+and risk analysis  
+Leadership Team  Management  Reviews strategic pricing summaries, 
+approves high -value deals, and 
+handles escalations  
+Compliance Team  Governance  Ensures adherence to pricing policies, 
+validates audit logs, and reviews risk 
+and compliance reports  
+ 
+3.7 Glossary of Terms  
+Term / Acronym  Definition  
+RFP (Request for Proposal)  A document provided by clients that outlines requirements, scope, and pricing expectations for 
+services  
+Pricing Intelligence Agent  An AI -driven system that automates RFP analysis, pricing computation, benchmarking, and 
+proposal generation  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 14 Term / Acronym  Definition  
+SLA (Service Level Agreement)  Defined timelines for RFP processing, data validation, pricing computation, and output 
+generation  
+API (Application Programming 
+Interface)  Interface used to integrate with internal systems such as cost databases, benchmarking 
+systems, and document processing services  
+HIL (Human -in-Loop)  A process where human validation is required for key steps such as data validation, pricing 
+approval, and risk review  
+Pricing Model  The method used to calculate pricing such as per word, per minute, subscription, or fixed 
+pricing  
+Buy Rate  The internal cost associated with delivering a service, retrieved from cost databases  
+Sell Rate  The final price offered to the client after applying margin and overhead on buy rates  
+Cost -to-Price Bridge  A transparent breakdown showing how buy rate, overhead, and margin contribute to the final 
+sell rate  
+Benchmarking  The process of comparing proposed pricing with historical deals to determine competitiveness  
+Scenario Pricing  Multiple pricing variations such as conservative, base, and aggressive used for decision -
+making  
+Locale  Standardized representation of language and regional combinations used in pricing (e.g., en -
+US, fr -FR) 
+Data Standardization  Process of converting extracted data into consistent formats such as normalized locale codes 
+and aligned units  
+Template Population  Automated process of filling client pricing templates with computed pricing data and contract 
+values  
+Commercial Assumptions  Business conditions included in proposals such as SLAs, tax handling, validity period, and 
+volume tolerances  
+Contract Risk Analysis  Process of identifying and classifying risks in contracts based on predefined rules and policies  
+Escalation  Process of raising high -risk or low -margin deals for higher -level approval or review  
+Audit Log  A record of all system activities including data extraction, pricing computation, approvals, and 
+outputs for traceability  
+Pricing Strategy Summary  Internal report that highlights deal value, margin insights, and competitive positioning for 
+leadership review  
+Exception Handling  Process of identifying and managing issues such as missing data, unsupported inputs, or 
+processing failures  
+ 
+4. Non -Functional Requirements  
+# Category  Requirement  Target / Measure  
+1 Performance  The system must process RFP ingestion, data 
+extraction, pricing computation, and output generation 
+in near real time. It must ensure fast response for user 
+interactions and pricing workflows.  Less than 5 seconds response 
+time for key operations  
+2 Scalability  The system must support processing of multiple RFPs 
+simultaneously and handle large datasets from cost 
+and historical databases without performance 
+degradation.  High scalability with enterprise -
+level load handling  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 15 3 Reliability  The system must ensure no data loss during RFP 
+processing, pricing computation, and output 
+generation. All workflows must execute consistently 
+and accurately.  99.9% reliability  
+4 Availability  The system must be accessible to pricing teams and 
+stakeholders at all times for RFP processing, 
+validation, pricing review, and reporting.  99.5% uptime  
+5 Security  The system must ensure secure handling of sensitive 
+pricing data, cost data, and client information. Role -
+based access control must be enforced across all 
+modules.  Enforced security controls and 
+compliance standards  
+6 Observability  The system must provide full visibility through logs, 
+dashboards, and alerts. All actions such as data 
+extraction, pricing decisions, approvals, and outputs 
+must be traceable.  Complete monitoring and audit 
+visibility  
+7 Maintainability  The system must allow easy updates to pricing rules, 
+margin logic, benchmarking parameters, and workflow 
+configurations without impacting ongoing operations.  Low effort for configuration 
+changes  
+8 Extensibility  The system must support future enhancements such 
+as new pricing models, additional integrations, and 
+advanced AI -driven decision capabilities.  Flexible and modular architecture  
+9 Accuracy  The system must ensure high accuracy in data 
+extraction, pricing computation, benchmarking, and 
+output generation.  Greater than 95% accuracy across 
+workflows  
+10 Auditability  The system must maintain detailed logs of all activities 
+including data processing, pricing logic, approvals, and 
+outputs for audit and compliance purposes.  Full traceability and audit -ready 
+records  
+11 Usability  The system must provide intuitive interfaces for pricing 
+analysts and managers to review data, validate inputs, 
+and approve outputs . High user satisfaction and minimal 
+training required  
+ 
+4.1 Key Assumptions and Constraints  
+Assumptions  
+# Assumption  
+1 RFP documents will be available in supported formats such as PDF and DOCX and will follow a reasonably consistent 
+structure for data extraction  
+2 Internal cost databases are available and provide accurate and up -to-date buy rates for all supported service types and 
+locales  
+3 Historical rate databases are accessible and contain sufficient data to enable meaningful benchmarking and pricing 
+recommendations  
+4 Users will provide required inputs such as project management overhead and target margin accurately during the pricing 
+workflow  
+5 Standard formats such as locale codes (for example BCP -47) are defined and available for data normalization and 
+processing  
+6 Client pricing templates are standardized and available for automated population by the system  
+7 Business rules and approval matrices for pricing validation and contract risk analysis are predefined and accessible to the 
+system  
+Business Requirements Document — Pricing Intelligence Agent    |   CTA Department   |   V1   |   07/04/2026  
+Confidential — Internal Use Only  Page 16 # Assumption  
+8 Human -in-Loop participants such as pricing analysts and managers are available to review, validate, and approve pricing 
+outputs when required  
+9 Network connectivity and system integrations are stable to support real -time or near real -time processing of RFPs and 
+pricing workflows  
+10 The system has access to required enterprise services such as document processing, analytics, and reporting systems  
+11 Data privacy and security policies are defined and enforced for handling sensitive client and pricing information  
+12 Historical data and user feedback will be available to support continuous learning and improvement of pricing 
+recommendations  
+Constraints  
+# Constraint  
+1 Dependency on internal cost databases for buy rates. Any delay, inaccuracy, or unavailability may impact pricing 
+computation  
+2 Dependency on historical rate databases for benchmarking. Limited or poor -quality data may affect recommendation 
+accuracy  
+3 Variability in RFP formats and structure may impact data extraction accuracy and require manual validation  
+4 Incomplete or ambiguous RFP inputs may require assumptions, which can affect pricing precision and require Human -in-
+Loop intervention  
+5 Dependency on predefined business rules and approval matrices. Any gaps or inconsistencies may impact pricing 
+validation and risk analysis  
+6 Human -in-Loop validation may introduce delays in workflow completion, especially for high -value or complex deals  
+7 System performance may be impacted when processing multiple large RFPs and datasets simultaneously  
+8 Limited control over external or legacy systems integrated for document processing or analytics may affect end -to-end 
+processing  
+9 Data accuracy depends on user -provided inputs such as margin and overhead. Incorrect inputs may lead to inaccurate 
+pricing outputs  
+10 Compliance and data privacy requirements may restrict access to sensitive pricing data and client information  
+11 Changes in pricing strategies, cost structures, or market conditions may require frequent updates to system rules and 
+logic  
+12 Benchmarking effectiveness may be limited in scenarios with low historical data availability  
+ 
+ 
+Document Version: V1  |  Prepared by: Yogesh Y  |  Requested by: Narendra Reddy Bakkireddy, CTA  |  Date: 07/04/2026  
+This is a controlled document. Changes must follow the project change management process.  

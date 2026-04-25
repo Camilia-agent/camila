@@ -1,0 +1,162 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--neutral-0);
+  background: #F4F6FA;
+}
+
+body:not(.desktop-mode) {
+  background:
+    radial-gradient(ellipse 900px 600px at 100% 0%, rgba(176, 38, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 700px 500px at 0% 100%, rgba(0, 240, 255, 0.05) 0%, transparent 60%),
+    var(--neutral-8);
+}
+body:not(.desktop-mode)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(176, 38, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 38, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.desktop-mode { overflow: hidden; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); }
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-6);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-5);
+}
+
+/* -- Window Controls (Windows 11 Style) ----------------------- */
+.window-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 32px;
+  z-index: 100;
+}
+
+.win-btn {
+  width: 46px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.win-min:hover, .win-max:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.win-close:hover {
+  background: #e81123 !important;
+  color: #fff !important;
+}
+
+.win-btn svg {
+  stroke-width: 1.2px;
+}
+
+.win-min svg { transform: translateY(1px); }
+
+/* Make sure the hero sections are relative for positioning */
+.hero-banner, .stub-hero {
+  position: relative;
+  overflow: hidden; /* Ensure controls dont spill */
+}
+
+
+/* -- Global Window Title Bar ---------------------------------- */
+.window-title-bar {
+  height: 32px;
+  background: rgba(7, 11, 26, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
+  z-index: 1001;
+  position: sticky;
+  top: 0;
+}
+
+.wtb-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 12px;
+}
+
+.wtb-icon {
+  font-size: 14px;
+}
+
+.wtb-title {
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.window-controls {
+  display: flex;
+  height: 100%;
+}
+
+.win-btn {
+  width: 46px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.win-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.win-close:hover {
+  background: #e81123 !important;
+}
+
+.main {
+  position: relative;
+  overflow-y: auto;
+  height: calc(100vh - 48px); /* Account for taskbar */
+}
+

@@ -1,0 +1,94 @@
+:root {
+  --primary:        #5929d0;
+  --primary-light:  #E8E5FF;
+  --primary-border: #9B8EDE;
+  --pink:           #CF008B;
+  --pink-light:     #FFD6F4;
+  --navy-dark:      #0E2E89;
+  --cyan:           #22D3EE;
+  --cyan-light:     #CFFAFE;
+  --success:        #16A34A;
+  --success-light:  #DCFCE7;
+  --warning:        #E4902E;
+  --warning-light:  #FEF3C7;
+  --error:          #DC2626;
+  --error-light:    #FEE2E2;
+  --neutral-0:      #0F172A;
+  --neutral-1:      #1E293B;
+  --neutral-2:      #334155;
+  --neutral-3:      #475569;
+  --neutral-4:      #64748B;
+  --neutral-5:      #94A3B8;
+  --neutral-6:      #CBD5E1;
+  --neutral-7:      #E2E8F0;
+  --neutral-8:      #F1F5F9;
+  --neutral-9:      #FFFFFF;
+
+  --gradient-hero:   linear-gradient(135deg, #EDE9FF 0%, #F5EEFF 30%, #FFE4F7 60%, #FFFFFF 100%);
+  --gradient-banner: linear-gradient(90deg, #A855F7 0%, #6B8EF0 50%, #01CAB8 100%);
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.10);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,.14);
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-pill: 999px;
+
+  --neon-cyan:    #00F0FF;
+  --neon-violet:  #B026FF;
+  --neon-pink:    #FF006E;
+  --neon-lime:    #39FF88;
+  --neon-amber:   #FFB800;
+  --ai-deep:      #070B1A;
+  --ai-mid:       #0E1327;
+  --ai-surface:   #131833;
+  --ai-border:    rgba(0, 240, 255, 0.18);
+  --ai-border-strong: rgba(0, 240, 255, 0.35);
+  --glow-cyan:    0 0 24px rgba(0, 240, 255, 0.45);
+  --glow-violet:  0 0 24px rgba(176, 38, 255, 0.40);
+  --glow-pink:    0 0 20px rgba(255, 0, 110, 0.40);
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(0,240,255,0); }
+  50%      { box-shadow: 0 0 24px rgba(0,240,255,0.5); }
+}
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1;    text-shadow: 0 0 12px currentColor; }
+  50%      { opacity: 0.88; text-shadow: 0 0 20px currentColor; }
+}
+@keyframes data-flow {
+  0%   { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(20px, -30px) scale(1.08); }
+  66%      { transform: translate(-15px, 20px) scale(0.95); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes rise-in {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .4; }
+}
+@keyframes pageFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
